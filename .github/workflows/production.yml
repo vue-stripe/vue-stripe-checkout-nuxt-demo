@@ -1,0 +1,37 @@
+name: Deploy:Production
+
+on: 
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    name: Deploy to production
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [10]
+    steps: 
+      - uses: actions/checkout@master
+      - uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Install Yarn
+        run: npm install yarn@latest -g
+      - name: Install Firebase Tools
+        run: npm install firebase-tools -g
+      - name: Install dependencies
+        run: yarn
+      - name: Run build
+        env: 
+          STRIPE_PK: ${{ secrets.STRIPE_PK }}
+        run: yarn generate
+      - name: Run deploy
+        env: 
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+        run: |
+          firebase use mc-v4-prod
+          firebase target:clear hosting prod
+          firebase target:apply hosting prod parmazip-main
+          firebase deploy --only hosting:prod -P mc-v4-prod
