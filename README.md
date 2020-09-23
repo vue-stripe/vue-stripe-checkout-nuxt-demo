@@ -6,6 +6,19 @@
 
 A demo on how to implement vue-stripe-checkout in Nuxt.js. This guide is targeted to those who are already familiar with Nuxt.js. For further explanation of the Nuxt.js features, kindly visit their beautifully written documentation website.
 
+## Contents
+
+- [Demo](#demo)
+- [Installation](#installation)
+- [Setup](#setup)
+- [Usage](#usage)
+- [Build & Generate Logs](build-logs)
+
+## Demo
+
+- SPA Demo - https://vue-stripe-checkout-nuxt-demo.web.app
+- SSR Demo - https://vue-stripe-checkout-nuxt-demo.herokuapp.com
+
 ## Installation
 
 **Yarn**
