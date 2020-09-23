@@ -25,6 +25,7 @@ jobs:
         run: yarn
       - name: Run build
         env: 
+          SITE_NAME: ${{ secrets.SITE_NAME }}
           STRIPE_PK: ${{ secrets.STRIPE_PK }}
         run: yarn generate
       - name: Run deploy
