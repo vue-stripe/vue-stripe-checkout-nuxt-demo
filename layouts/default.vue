@@ -1,8 +1,10 @@
 <template lang="pug">
-  v-app
+  v-app#app
     v-app-bar(
       color="white"
-      elevation="1"
+      flat
+      absolute
+      app
     )
       img(width="50" src="../assets/vue-stripe-logo-variant-1-small.png")
       h2 Vue Stripe Checkout | Nuxt Demo
