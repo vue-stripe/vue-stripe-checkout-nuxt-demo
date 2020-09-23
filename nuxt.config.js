@@ -16,6 +16,7 @@ export default {
   },
 
   env: {
+    SITE_NAME: process.env.SITE_NAME,
     STRIPE_PK: process.env.STRIPE_PK,
   },
 
