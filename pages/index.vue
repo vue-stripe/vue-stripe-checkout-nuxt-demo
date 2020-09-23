@@ -20,7 +20,7 @@
                   :loading="loading"
                   :disabled="loading"
                   @click="checkout"
-                ).text-none Nuxt Demo Checkout
+                ).text-none Nuxt Checkout Demo
 </template>
 
 <script>
