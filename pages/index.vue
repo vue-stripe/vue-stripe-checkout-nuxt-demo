@@ -1,10 +1,11 @@
 <template lang="pug">
   v-container(fill-height)
     v-row(justify="center" align="center")
-      v-col(cols="12" md="10")
+      v-col(cols="12" md="6")
         v-card(outlined)
           v-card-text.text-center
             img(width="150" src="../assets/vue-stripe-logo-variant-1-small.png")
+            br
             stripe-checkout(
               ref="checkoutRef"
               :pk="pk"
