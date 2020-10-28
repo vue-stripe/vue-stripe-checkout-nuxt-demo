@@ -22,18 +22,18 @@
     "@nuxtjs/axios": "^5.12.2",
     "core-js": "^3.6.5",
     "cross-env": "^7.0.2",
-    "nuxt": "^2.14.5",
+    "nuxt": "^2.14.7",
     "pug": "^3.0.0",
     "pug-plain-loader": "^1.0.0",
-    "vue-stripe-checkout": "^3.5.10"
+    "vue-stripe-checkout": "^3.5.11"
   },
   "devDependencies": {
-    "@babel/plugin-proposal-optional-chaining": "^7.11.0",
-    "@nuxtjs/eslint-config": "^4.0.0",
-    "@nuxtjs/eslint-module": "^2.0.0",
+    "@babel/plugin-proposal-optional-chaining": "^7.12.1",
+    "@nuxtjs/eslint-config": "^3.1.0",
+    "@nuxtjs/eslint-module": "^3.0.0",
     "@nuxtjs/vuetify": "^2.0.0-beta.2",
     "babel-eslint": "^10.1.0",
-    "eslint": "^7.8.1",
+    "eslint": "^7.12.1",
     "eslint-plugin-nuxt": "^1.0.0",
     "husky": "^4.3.0",
     "lint-staged": "^10.3.0"
