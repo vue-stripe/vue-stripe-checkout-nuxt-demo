@@ -41,7 +41,7 @@ export default {
   },
   computed: {
     successUrl () {
-      return process.browser ? `${window.location.origin}/sucess` : '';
+      return process.browser ? `${window.location.origin}/success` : '';
     },
     cancelUrl () {
       return process.browser ? `${window.location.origin}/cancel` : '';
