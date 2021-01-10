@@ -8,7 +8,7 @@ A demo on how to implement vue-stripe-checkout in Nuxt.js. This guide is targete
 
 ## Contents
 
-- [Demo](#demo)
+- [Demo](#demo) - For most updated demo go to https://vuestripe.com
 - [Installation](#installation)
 - [Setup](#setup)
 - [Usage](#usage)
@@ -22,10 +22,10 @@ A demo on how to implement vue-stripe-checkout in Nuxt.js. This guide is targete
 ## Installation
 
 **Yarn**
-`yarn add vue-stripe-checkout`
+`yarn add @vue-stripe/vue-stripe`
 
 **NPM**
-`npm install vue-stripe-checkout -S`
+`npm install @vue-stripe/vue-stripe -S`
 
 ## Setup
 
@@ -55,12 +55,12 @@ export default {
 
 **Step 3**
 
-Create a `vue-stripe-checkout.js` plugin in `plugins/` folder.
+Create a `vue-stripe.js` plugin in `plugins/` folder.
 
-*plugins/vue-stripe-checkout.js*
+*plugins/vue-stripe.js*
 ```javascript
 import Vue from 'vue';
-import { StripeCheckout } from 'vue-stripe-checkout';
+import { StripeCheckout } from '@vue-stripe/vue-stripe';
 
 export default () => {
   Vue.component('StripeCheckout', StripeCheckout);
@@ -78,7 +78,7 @@ Register the new plugin in your `nuxt.config.js` under the `plugins` array.
 export default {
   // ... other config
   plugins: [
-    { src: '~/plugins/vue-stripe-checkout.js', ssr: false },
+    { src: '~/plugins/vue-stripe.js', ssr: false },
   ],
   // ... other config
 };
