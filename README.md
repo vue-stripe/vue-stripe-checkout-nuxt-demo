@@ -1,10 +1,10 @@
 
 <p align="center">
   <img src="./vue-stripe-logo-variant-1-small.png" alt="drawing" width="250"/>
-  <h1 align="center">Vue Stripe Checkout + Nuxt.js 💳</h1>
+  <h1 align="center">Vue Stripe + Nuxt.js 💳</h1>
 </p>
 
-A demo on how to implement vue-stripe-checkout in Nuxt.js. This guide is targeted to those who are already familiar with Nuxt.js. For further explanation of the Nuxt.js features, kindly visit their beautifully written documentation website.
+A demo on how to implement Vue Stripe in Nuxt.js. This guide is targeted to those who are already familiar with Nuxt.js. For further explanation of the Nuxt.js features, kindly visit their beautifully written documentation website.
 
 ## Contents
 
@@ -67,7 +67,9 @@ export default () => {
 };
 ```
 
-So basically when this plugin is called, it just register the `StripeCheckout` component globally.
+So basically when this plugin is called, it just registers the `StripeCheckout` component globally.
+
+Just inspect the `plugins/vue-stripe.js` file in this repository to see the additional implementation of Stripe Elements.
 
 **Step 4**
 
@@ -91,17 +93,17 @@ The most important part here is the `ssr` property. This will tell nuxt that thi
 After successfully setting up the env, and the plugin, you can now use `StripeCheckout` like a normal Vue component. Like so:
 
 ```html
-<template lang="pug">
-  div
-    stripe-checkout(
+<template>
+  <div>
+    <stripe-checkout
       ref="checkoutRef"
       :pk="pk"
       :items="items"
       :successUrl="successUrl"
       :cancelUrl="cancelUrl"
-    )
-      template(slot="checkout-button")
-        button(@click="checkout").text-none Checkout
+    />
+    <button @click="checkout">Checkout</button>
+  </div>
 </template>
 
 <script>
