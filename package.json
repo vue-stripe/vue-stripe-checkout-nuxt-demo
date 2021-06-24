@@ -20,12 +20,12 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.12.2",
+    "@vue-stripe/vue-stripe": "^4.2.5",
     "core-js": "^3.6.5",
     "cross-env": "^7.0.2",
     "nuxt": "^2.14.7",
     "pug": "^3.0.0",
-    "pug-plain-loader": "^1.0.0",
-    "vue-stripe-checkout": "^3.5.14-beta.0"
+    "pug-plain-loader": "^1.0.0"
   },
   "devDependencies": {
     "@babel/plugin-proposal-optional-chaining": "^7.12.1",
