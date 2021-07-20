@@ -29,7 +29,7 @@ A demo on how to implement Vue Stripe in Nuxt.js. This guide is targeted to thos
 
 ## Setup
 
-**Step 1**
+### Step 1
 
 Add your publishable key to the `.env` file.
 
@@ -38,7 +38,7 @@ Add your publishable key to the `.env` file.
 STRIPE_PK=<your-stripe-publishable-key>
 ```
 
-**Step 2**
+### Step 2
 
 Register the new env in your `nuxt.config.js` under the `env` object.
 
@@ -53,7 +53,7 @@ export default {
 };
 ```
 
-**Step 3**
+### Step 3
 
 Create a `vue-stripe.js` plugin in `plugins/` folder.
 
@@ -71,7 +71,7 @@ So basically when this plugin is called, it just registers the `StripeCheckout` 
 
 Just inspect the `plugins/vue-stripe.js` file in this repository to see the additional implementation of Stripe Elements.
 
-**Step 4**
+### Step 4
 
 Register the new plugin in your `nuxt.config.js` under the `plugins` array.
 
