@@ -40,7 +40,7 @@ STRIPE_PK=<your-stripe-publishable-key>
 
 ### Step 2
 
-Register the new env in your `nuxt.config.js` under the `env` object.
+Register the new env in your `nuxt.config.js` under the `env` or `runtime config` object.
 
 *nuxt.config.js*
 ```javascript
@@ -48,6 +48,19 @@ export default {
   // ... other config
   env: {
     STRIPE_PK: process.env.STRIPE_PK,
+  },
+  // ... other config
+};
+```
+
+or
+
+*nuxt.config.js*
+```javascript
+export default {
+  // ... other config
+  publicRuntimeConfig: {
+    stripePK: process.env.STRIPE_PK,
   },
   // ... other config
 };
@@ -62,9 +75,7 @@ Create a `vue-stripe.js` plugin in `plugins/` folder.
 import Vue from 'vue';
 import { StripeCheckout } from '@vue-stripe/vue-stripe';
 
-export default () => {
-  Vue.component('StripeCheckout', StripeCheckout);
-};
+Vue.component('StripeCheckout', StripeCheckout);
 ```
 
 So basically when this plugin is called, it just registers the `StripeCheckout` component globally.
@@ -92,6 +103,7 @@ The most important part here is the `ssr` property. This will tell nuxt that thi
 
 After successfully setting up the env, and the plugin, you can now use `StripeCheckout` like a normal Vue component. Like so:
 
+Using SKU API (to be replaced by Price API, see https://github.com/stripe/stripe-payments-demo/issues/155)
 ```html
 <template>
   <div>
@@ -109,7 +121,7 @@ After successfully setting up the env, and the plugin, you can now use `StripeCh
 <script>
 export default {
   data () {
-    this.pk = process.env.STRIPE_PK;
+    this.pk = process.env.STRIPE_PK; // or $config.stripePK when using runtime config
     return {
       items: [
         {
@@ -129,6 +141,51 @@ export default {
 };
 </script>
 ```
+
+or
+
+Using Price API (recommended)
+```html
+<template>
+  <div>
+    <stripe-checkout
+      ref="checkoutRef"
+      :pk="pk"
+      mode="payment"
+      :lineItems="items"
+      :successUrl="successUrl"
+      :cancelUrl="cancelUrl"
+    />
+    <button @click="checkout">Checkout</button>
+  </div>
+</template>
+
+<script>
+export default {
+  data () {
+    this.pk = process.env.STRIPE_PK; // or $config.stripePK when using runtime config
+    return {
+      items: [
+        {
+          price: 'price_1JG11OGHHq3CQfTaN5nR5SNQ',
+          quantity: 1,
+        },
+      ],
+      successUrl: 'http://localhost:3000',
+      cancelUrl: 'http://localhost:3000',
+    };
+  },
+  methods: {
+    checkout () {
+      this.$refs.checkoutRef.redirectToCheckout();
+    },
+  },
+};
+</script>
+```
+
+**Important!!!**
+Do not forget to enable checkout (CLIENT-ONLY INTEGRATION in this case) under https://dashboard.stripe.com/settings/checkout
 
 ## Build logs
 
